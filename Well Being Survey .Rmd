@@ -6,14 +6,16 @@ output: pdf_document
 ---
 
 ```{r message = FALSE, warning = FALSE, error = FALSE}
-# loading the necessary libaries
+# loading the necessary libraries
 library(tidyverse)
 library(ggplot2)
 library(rio)
 ```
 
+# First Section
+
 ```{r}
-#downloading the library 
+#pulling the data and renaming the first section
 survey_hopefully <- import("well_being_survey.xlsx") %>% 
   rename("large_enrollment" = 7,
          "update_tech_hybrid" = 8,
@@ -24,8 +26,22 @@ survey_hopefully <- import("well_being_survey.xlsx") %>%
          "incentives_mentoring" = 13,
          "distribute_workloads" = 14)
   
-
+# just the first section data
 first_section <- survey_hopefully %>% 
   select(ID, large_enrollment:distribute_workloads)
+
+#remove the rows that have nonsense, WONT WORK AND DO NOT KNOW WHY
+first_section <- first_section[-c(855:856), ]
+first_section <- first_section[-c(860:861), ]
+first_section <- first_section[-c(863:863), ]
+first_section <- first_section[-c(865:865), ]
+```
+
+# Cleaning First Section
+```{r}
+#removing highest and lowest from each of the sections so we can convert to numeric
+#large enrollment
+first_section$large_enrollment <- sub("- Highest", "", first_section$large_enrollment)
+first_section$large_enrollment <- sub("- Lowest", "", first_section$large_enrollment)
 ```
 
