@@ -40,8 +40,37 @@ first_section <- first_section[-c(865:865), ]
 # Cleaning First Section
 ```{r}
 #removing highest and lowest from each of the sections so we can convert to numeric
-#large enrollment
+#large_enrollment
 first_section$large_enrollment <- sub("- Highest", "", first_section$large_enrollment)
 first_section$large_enrollment <- sub("- Lowest", "", first_section$large_enrollment)
+
+#update_tech_hybrid
+first_section$update_tech_hybrid <- sub("- Highest", "", first_section$update_tech_hybrid)
+first_section$update_tech_hybrid <- sub("- Lowest", "", first_section$update_tech_hybrid)
+
+#mentoring
+first_section$mentoring <- sub("- Highest", "", first_section$mentoring)
+first_section$mentoring <- sub("- Lowest", "", first_section$mentoring)
+
+#three_year
+first_section$three_year <- sub("- Highest", "", first_section$three_year)
+first_section$three_year <- sub("- Lowest", "", first_section$three_year)
+
+#teaching_evals_erase
+first_section$teaching_evals_replace <- sub("- Highest", "", first_section$teaching_evals_replace)
+first_section$teaching_evals_replace <- sub("- Lowest", "", first_section$teaching_evals_replace)
+
+#course_release
+first_section$course_release_national_level_service <- sub("- Highest", "", first_section$course_release_national_level_service)
+first_section$course_release_national_level_service <- sub("- Lowest", "", first_section$course_release_national_level_service)
+
+#incentives_monitoring
+first_section$incentives_mentoring <- sub("- Highest", "", first_section$incentives_mentoring)
+first_section$incentives_mentoring <- sub("- Lowest", "", first_section$incentives_mentoring)
+
+#distribute workloads
+first_section$distribute_workloads <- sub("- Highest", "", first_section$distribute_workloads)
+first_section$distribute_workloads <- sub("- Lowest", "", first_section$distribute_workloads)
+
 ```
 
