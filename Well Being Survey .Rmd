@@ -14,6 +14,18 @@ library(rio)
 
 ```{r}
 #downloading the library 
-survey_hopefully <- import("well_being_survey.xlsx")
+survey_hopefully <- import("well_being_survey.xlsx") %>% 
+  rename("large_enrollment" = 7,
+         "update_tech_hybrid" = 8,
+         "mentoring" = 9,
+         "three_year" = 10,
+         "teaching_evals_replace" = 11,
+         "course_release_national_level_service" = 12,
+         "incentives_mentoring" = 13,
+         "distribute_workloads" = 14)
+  
+
+first_section <- survey_hopefully %>% 
+  select(ID, large_enrollment:distribute_workloads)
 ```
 
