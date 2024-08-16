@@ -1,0 +1,19 @@
+---
+title: "Well Being Survey"
+author: "Naomi Liftman"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r message = FALSE, warning = FALSE, error = FALSE}
+# loading the necessary libaries
+library(tidyverse)
+library(ggplot2)
+library(rio)
+```
+
+```{r}
+#downloading the library 
+survey_hopefully <- import("well_being_survey.xlsx")
+```
+
