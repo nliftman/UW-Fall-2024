@@ -44,32 +44,32 @@ first_section$large_enrollment <- sub("1 - Highest", 1, first_section$large_enro
 first_section$large_enrollment <- sub("5 - Lowest", 5, first_section$large_enrollment)
 
 #update_tech_hybrid
-first_section$update_tech_hybrid <- sub("- Highest", "", first_section$update_tech_hybrid)
-first_section$update_tech_hybrid <- sub("- Lowest", "", first_section$update_tech_hybrid)
+first_section$update_tech_hybrid <- sub("1 - Highest", 1, first_section$update_tech_hybrid)
+first_section$update_tech_hybrid <- sub("5 - Lowest", 5, first_section$update_tech_hybrid)
 
 #mentoring
-first_section$mentoring <- sub("- Highest", "", first_section$mentoring)
-first_section$mentoring <- sub("- Lowest", "", first_section$mentoring)
+first_section$mentoring <- sub("1 - Highest", 1, first_section$mentoring)
+first_section$mentoring <- sub("5 - Lowest", 5, first_section$mentoring)
 
 #three_year
-first_section$three_year <- sub("1 - Highest", "1", first_section$three_year)
-first_section$three_year <- sub("- Lowest", "", first_section$three_year)
+first_section$three_year <- sub("1 - Highest", 1, first_section$three_year)
+first_section$three_year <- sub("5 - Lowest", 5, first_section$three_year)
 
 #teaching_evals_erase
-first_section$teaching_evals_replace <- sub("- Highest", "", first_section$teaching_evals_replace)
-first_section$teaching_evals_replace <- sub("- Lowest", "", first_section$teaching_evals_replace)
+first_section$teaching_evals_replace <- sub("1 - Highest", 1, first_section$teaching_evals_replace)
+first_section$teaching_evals_replace <- sub("5 - Lowest", 5, first_section$teaching_evals_replace)
 
 #course_release
-first_section$course_release_national_level_service <- sub("- Highest", "", first_section$course_release_national_level_service)
-first_section$course_release_national_level_service <- sub("- Lowest", "", first_section$course_release_national_level_service)
+first_section$course_release_national_level_service <- sub("1 - Highest", 1, first_section$course_release_national_level_service)
+first_section$course_release_national_level_service <- sub("5 - Lowest", 5, first_section$course_release_national_level_service)
 
 #incentives_monitoring
-first_section$incentives_mentoring <- sub("- Highest", "", first_section$incentives_mentoring)
-first_section$incentives_mentoring <- sub("- Lowest", "", first_section$incentives_mentoring)
+first_section$incentives_mentoring <- sub("1 - Highest", 1, first_section$incentives_mentoring)
+first_section$incentives_mentoring <- sub("5 - Lowest", 5, first_section$incentives_mentoring)
 
 #distribute workloads
-first_section$distribute_workloads <- sub("- Highest", "", first_section$distribute_workloads)
-first_section$distribute_workloads <- sub("- Lowest", "", first_section$distribute_workloads)
+first_section$distribute_workloads <- sub("1 - Highest", 1, first_section$distribute_workloads)
+first_section$distribute_workloads <- sub("5 - Lowest", 5, first_section$distribute_workloads)
 
 #not working :(
 reeee <- first_section
