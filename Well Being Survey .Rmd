@@ -53,7 +53,13 @@ first_section$large_enrollment <- sub("5 - Lowest", 5, first_section$large_enrol
 
 #turning it all to numeric
 first_section$large_enrollment <- as.numeric(first_section$large_enrollment)
+
+#count df
+rehee <- first_section %>% 
+  count(large_enrollment)
 ```
+
+
 
 
 ```{r}
@@ -84,10 +90,5 @@ first_section$incentives_mentoring <- sub("5 - Lowest", 5, first_section$incenti
 #distribute workloads
 first_section$distribute_workloads <- sub("1 - Highest", 1, first_section$distribute_workloads)
 first_section$distribute_workloads <- sub("5 - Lowest", 5, first_section$distribute_workloads)
-
-#not working :(
-reeee <- first_section
-
-reeee$large_enrollment <- as.numeric(first_section$large_enrollment)
 ```
 
