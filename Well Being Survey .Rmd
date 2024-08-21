@@ -11,6 +11,7 @@ library(tidyverse)
 library(ggplot2)
 library(rio)
 library(stringr)
+library(RColorBrewer)
 ```
 
 # First Section
@@ -59,6 +60,11 @@ rehee <- first_section %>%
   count(large_enrollment)
 ```
 
+# Making a Pie Chart!
+```{r}
+pie(rehee$n, col = c("#5b1978", "#ae017e", "#4c9f9f", "#6fa8dc",  "#f5d46f", "#f768a1", border = "white"))
+
+```
 
 
 
