@@ -10,6 +10,7 @@ output: pdf_document
 library(tidyverse)
 library(ggplot2)
 library(rio)
+library(stringr)
 ```
 
 # First Section
@@ -36,13 +37,26 @@ first_section <- first_section %>%
 
 ```
 
-# Removing all Characters and Converting to Numeric
+# Removing all Characters and Converting to Numeric for Large Enrollment
 ```{r}
 #removing highest and lowest from each of the sections so we can convert to numeric
 #large_enrollment
+#replacing the NA's with the lowest!
+first_section[is.na(first_section)] <- 6
+
+#removing all the blank spaces on both sides of the string
+first_section$large_enrollment <- str_trim(first_section$large_enrollment, side = c("both"))
+
+#removing the strings and replacing them with numbers
 first_section$large_enrollment <- sub("1 - Highest", 1, first_section$large_enrollment)
 first_section$large_enrollment <- sub("5 - Lowest", 5, first_section$large_enrollment)
 
+#turning it all to numeric
+first_section$large_enrollment <- as.numeric(first_section$large_enrollment)
+```
+
+
+```{r}
 #update_tech_hybrid
 first_section$update_tech_hybrid <- sub("1 - Highest", 1, first_section$update_tech_hybrid)
 first_section$update_tech_hybrid <- sub("5 - Lowest", 5, first_section$update_tech_hybrid)
