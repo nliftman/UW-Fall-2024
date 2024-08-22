@@ -79,3 +79,21 @@ pie(update_tech$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7
 
 ```
 
+```{r}
+#mentoring from alexandra
+mentoring <- data.fram(mentoring = 1-6,
+                       n = c(136, 238, 242, 128, 71, 40))
+
+#pie chart for mentoring
+pie(update_tech$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Mentoring opportunities in competency-based training")
+
+```
+
+
+
+
+
+
+
+
+
