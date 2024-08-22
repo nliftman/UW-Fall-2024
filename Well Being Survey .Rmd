@@ -62,7 +62,7 @@ rehee <- first_section %>%
 
 # Making a Pie Chart!
 ```{r}
-pie(rehee$n, col = c("#5b1978", "#ae017e", "#4c9f9f", "#6fa8dc",  "#f5d46f", "#f768a1", border = "white"))
+pie(rehee$n, col = c("#5b1978", "#ae017e", "#4c9f9f", "#6fa8dc",  "#f5d46f", "#f768a1", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "large enrollments, challenging time schedules or difficult schedules ")
 
 ```
 
