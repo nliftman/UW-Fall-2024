@@ -1,0 +1,15 @@
+---
+title: "Modeling Well Being Survey"
+author: "Naomi Liftman"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r message = FALSE, warning = FALSE, error = FALSE}
+# loading the necessary libraries
+library(tidyverse)
+library(ggplot2)
+library(rio)
+library(stringr)
+library(RColorBrewer)
+```
