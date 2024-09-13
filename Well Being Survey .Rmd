@@ -1,0 +1,107 @@
+---
+title: "Well Being Survey"
+author: "Naomi Liftman"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r message = FALSE, warning = FALSE, error = FALSE}
+# loading the necessary libraries
+library(tidyverse)
+library(ggplot2)
+library(rio)
+library(stringr)
+library(RColorBrewer)
+```
+
+# First Section
+
+```{r}
+#pulling the data and renaming the first section
+survey_hopefully <- import("well_being_survey.xlsx") %>% 
+  rename("large_enrollment" = 7,
+         "update_tech_hybrid" = 8,
+         "mentoring" = 9,
+         "three_year" = 10,
+         "teaching_evals_replace" = 11,
+         "course_release_national_level_service" = 12,
+         "incentives_mentoring" = 13,
+         "distribute_workloads" = 14)
+  
+# just the first section data
+first_section <- survey_hopefully %>% 
+  select(ID, large_enrollment:distribute_workloads)
+
+#remove the rows that have nonsense (they have no ID, but I cann
+first_section <- first_section %>% 
+  drop_na(ID)
+
+```
+
+# Removing all Characters and Converting to Numeric for Large Enrollment
+```{r}
+#removing highest and lowest from each of the sections so we can convert to numeric
+#large_enrollment
+#replacing the NA's with the lowest!
+first_section[is.na(first_section)] <- 6
+
+#removing all the blank spaces on both sides of the string
+first_section$large_enrollment <- str_trim(first_section$large_enrollment, side = c("both"))
+
+#removing the strings and replacing them with numbers
+first_section$large_enrollment <- sub("1 - Highest", 1, first_section$large_enrollment)
+first_section$large_enrollment <- sub("5 - Lowest", 5, first_section$large_enrollment)
+
+#turning it all to numeric
+first_section$large_enrollment <- as.numeric(first_section$large_enrollment)
+
+#count df
+rehee <- first_section %>% 
+  count(large_enrollment)
+```
+
+# Making a Pie Chart!
+```{r}
+pie(rehee$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Large enrollments, challenging time schedules or difficult schedules ")
+
+```
+
+
+# Alexandra and I got the Same Results, so Using Hers <3
+
+```{r}
+#update_tech from alexandra data
+update_tech <- data.frame(update_tech =1:6,
+                             n = c(163, 201, 209, 147, 100, 35))
+
+#pie chart for update_tech
+pie(update_tech$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Upgrade technology for hybrid teaching")
+
+```
+
+```{r}
+#mentoring from alexandra
+mentoring <- data.frame(mentoring = 1:6,
+                       n = c(136, 238, 242, 128, 71, 40))
+
+#pie chart for mentoring
+pie(mentoring$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Mentoring opportunities in competency-based training")
+
+ggplot(data = mentoring, aes(x = mentoring, y = n)) + 
+  geom_col(fill = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9"), col = "black") +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(title = "Mentoring Opportunities in Competency-Based Training") +
+  xlab("Scale") +
+  ylab("Count")
+
+```
+
+
+
+
+
+
+
+
+
