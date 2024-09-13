@@ -1,5 +1,5 @@
 ---
-title: "Well Being Survey"
+title: "Cleaning Well Being Survey"
 author: "Naomi Liftman"
 date: "`r Sys.Date()`"
 output: pdf_document
