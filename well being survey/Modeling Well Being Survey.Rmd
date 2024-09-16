@@ -13,3 +13,16 @@ library(rio)
 library(stringr)
 library(RColorBrewer)
 ```
+
+```{r}
+teaching <- data.frame(rating = 1:6,
+                       large_enrollment = c(304, 236, 169, 71, 34, 40),
+                       upgrade_tech = c(163, 201, 209, 147, 100, 35),
+                       mentoring = c(236, 238, 242, 128, 71, 40),
+                       three_year_schedule = c(63, 116, 228, 184, 202, 62),
+                       evidence_based_evaluations = c(275, 229, 167, 87, 63, 34),
+                       course_release = c(133, 208, 239, 109, 127, 39),
+                       incedntives_mentoring = c(200, 227, 202, 103, 81, 42),
+                       distribute_workloads = c(488, 180, 97, 32, 30, 28))
+```
+
