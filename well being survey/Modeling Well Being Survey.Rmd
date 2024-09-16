@@ -14,6 +14,8 @@ library(stringr)
 library(RColorBrewer)
 ```
 
+# Teaching
+
 ```{r}
 teaching <- data.frame(rating = 1:6,
                        large_enrollment = c(304, 236, 169, 71, 34, 40),
@@ -25,4 +27,11 @@ teaching <- data.frame(rating = 1:6,
                        incedntives_mentoring = c(200, 227, 202, 103, 81, 42),
                        distribute_workloads = c(488, 180, 97, 32, 30, 28))
 ```
+
+```{r}
+ggplot(data.frame(x = rnorm(100)), aes(x)) +
+  geom_density() +
+  geom_function(fun = dnorm, colour = "red")
+```
+
 
