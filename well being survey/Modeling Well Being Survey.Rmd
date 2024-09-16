@@ -29,6 +29,14 @@ teaching <- data.frame(rating = 1:6,
 ```
 
 ```{r}
+ggplot() + 
+  geom_col(data = teaching, aes(x = rating, y = large_enrollment), fill = "orange", alpha = .5) +
+  geom_col(data = teaching, aes(x = rating, y = upgrade_tech), fill = "blue", alpha = .5)
+```
+
+
+
+```{r}
 ggplot(data.frame(x = rnorm(100)), aes(x)) +
   geom_density() +
   geom_function(fun = dnorm, colour = "red")
