@@ -126,6 +126,30 @@ for_t <- first_section %>%
          distribute_workloads != 6)
 ```
 
+# t-test time babyyyyyy
+
+```{r}
+#runing t-test on updating tech
+t.test(for_t$update_tech_hybrid, mu = 3, conf.level = .99)
+
+#t-test for mentoring
+t.test(for_t$mentoring, mu = 3,  conf.level = .99)
+
+#t-test for three year
+t.test(for_t$three_year, mu = 3,  conf.level = .99)
+
+#t-test for teaching evals
+t.test(for_t$teaching_evals_replace, mu = 3, conf.level = .99)
+
+#t-test for national
+t.test(for_t$course_release_national_level_service, mu = 3, conf.level = .99)
+
+#t-test for incentives
+t.test(for_t$incentives_mentoring, mu = 3, conf.level = .99)
+
+#t-test for distributing
+t.test(for_t$distribute_workloads, mu = 3, conf.level = .99)
+```
 
 
 
