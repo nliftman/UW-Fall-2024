@@ -69,45 +69,15 @@ rehee <- first_section %>%
 ```{r}
 #testing if it was random then the average should be 3 if no one really has strong feelings
 t.test(large_enroll_for_t$large_enrollment, mu = 3)
-#oooOOOOoooooO peopel care!
+#oooOOOOoooooO people care!
 ```
 
 # Making a Pie Chart!
 ```{r}
 pie(rehee$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Large enrollments, challenging time schedules or difficult schedules ")
-
 ```
 
 
-# Alexandra and I got the Same Results, so Using Hers <3
-
-```{r}
-#update_tech from alexandra data
-update_tech <- data.frame(update_tech =1:6,
-                             n = c(163, 201, 209, 147, 100, 35))
-
-#pie chart for update_tech
-pie(update_tech$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Upgrade technology for hybrid teaching")
-
-```
-
-```{r}
-#mentoring from alexandra
-mentoring <- data.frame(mentoring = 1:6,
-                       n = c(136, 238, 242, 128, 71, 40))
-
-#pie chart for mentoring
-pie(mentoring$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Mentoring opportunities in competency-based training")
-
-ggplot(data = mentoring, aes(x = mentoring, y = n)) + 
-  geom_col(fill = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9"), col = "black") +
-  theme_bw() +
-  scale_x_continuous() +
-  labs(title = "Mentoring Opportunities in Competency-Based Training") +
-  xlab("Scale") +
-  ylab("Count")
-
-```
 
 
 
