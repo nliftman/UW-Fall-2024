@@ -1,0 +1,138 @@
+---
+title: "Governance Cleaning"
+author: "Naomi Liftman"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r message = FALSE, warning = FALSE, error = FALSE}
+# loading the necessary libraries
+library(tidyverse)
+library(ggplot2)
+library(rio)
+library(stringr)
+library(RColorBrewer)
+```
+
+# First Section
+
+```{r}
+#pulling the data and renaming the first section
+survey_hopefully <- import("well_being_survey.xlsx") %>% 
+  rename("dispute_resolutions" = 22,
+         "leadership_training" = 23,
+         "salary_structures" = 24,
+         "decrease_pay_gap" = 25,
+         "transparent_merit" = 26,
+         "merit" = 27,
+         "performance_based_salary" = 28,
+         "senior_faculty" = 29,
+         "tri_campus" = 30)
+  
+# just the first section data
+governance <- survey_hopefully %>% 
+  select(ID, dispute_resolutions:tri_campus)
+
+#remove the rows that have nonsense (they have no ID, but I cann
+governance <- governance %>% 
+  drop_na(ID)
+```
+
+# Changing NAs to 6
+```{r}
+#removing highest and lowest from each of the sections so we can convert to numeric
+#large_enrollment
+#replacing the NA's with the lowest!
+governance[is.na(governance)] <- 6
+```
+
+# Cleaning all of the Teaching to make numeric
+
+```{r}
+#removing highest and lowest from each of the sections so we can convert to numeric
+#removing all the blank spaces on both sides of the string
+governance$dispute_resolutions <- str_trim(governance$dispute_resolutions, side = c("both"))
+governance$leadership_training <- str_trim(governance$leadership_training, side = c("both"))
+governance$salary_structures <- str_trim(governance$salary_structures, side = c("both"))
+governance$decrease_pay_gap <- str_trim(governance$decrease_pay_gap, side = c("both"))
+governance$transparent_merit <- str_trim(governance$transparent_merit, side = c("both"))
+governance$merit <- str_trim(governance$merit, side = c("both"))
+governance$performance_based_salary <- str_trim(governance$performance_based_salary, side = c("both"))
+governance$senior_faculty <- str_trim(governance$senior_faculty, side = c("both"))
+governance$tri_campus <- str_trim(governance$tri_campus, side = c("both"))
+
+#removing the strings and replacing them with numbers
+governance$dispute_resolutions <- sub("1 - Highest", 1, governance$dispute_resolutions)
+governance$dispute_resolutions <- sub("5 - Lowest", 5, governance$dispute_resolutions)
+governance$leadership_training <- sub("1 - Highest", 1, governance$leadership_training)
+governance$leadership_training <- sub("5 - Lowest", 5, governance$leadership_training)
+governance$salary_structures <- sub("1 - Highest", 1, governance$salary_structures)
+governance$salary_structures <- sub("5 - Lowest", 5, governance$salary_structures)
+governance$decrease_pay_gap <- sub("1 - Highest", 1, governance$decrease_pay_gap)
+governance$decrease_pay_gap <- sub("5 - Lowest", 5, governance$decrease_pay_gap)
+governance$transparent_merit <- sub("1 - Highest", 1, governance$transparent_merit)
+governance$transparent_merit <- sub("5 - Lowest", 5, governance$transparent_merit)
+governance$merit <- sub("1 - Highest", 1, governance$merit)
+governance$merit <- sub("5 - Lowest", 5, governance$merit)
+governance$performance_based_salary <- sub("1 - Highest", 1, governance$performance_based_salary)
+governance$performance_based_salary <- sub("5 - Lowest", 5, governance$performance_based_salary)
+governance$senior_faculty <- sub("1 - Highest", 1, governance$senior_faculty)
+governance$senior_faculty <- sub("5 - Lowest", 5, governance$senior_faculty)
+governance$tri_campus <- sub("1 - Highest", 1, governance$tri_campus)
+governance$tri_campus <- sub("5 - Lowest", 5, governance$tri_campus)
+
+#turning it all to numeric
+governance$dispute_resolutions <- as.numeric(governance$dispute_resolutions)
+governance$leadership_training <- as.numeric(governance$leadership_training)
+governance$salary_structures <- as.numeric(governance$salary_structures)
+governance$decrease_pay_gap <- as.numeric(governance$decrease_pay_gap)
+governance$transparent_merit <- as.numeric(governance$transparent_merit)
+governance$merit <- as.numeric(governance$merit)
+governance$performance_based_salary <- as.numeric(governance$performance_based_salary)
+governance$senior_faculty <- as.numeric(governance$senior_faculty)
+governance$tri_campus <- as.numeric(governance$tri_campus)
+
+#drop the 6's so we can run t-test
+for_t <- governance %>% 
+  filter(dispute_resolutions != 6,
+         leadership_training != 6,
+         salary_structures != 6,
+         decrease_pay_gap != 6,
+         transparent_merit != 6,
+         merit != 6,
+         performance_based_salary != 6,
+         senior_faculty != 6,
+         tri_campus != 6)
+```
+
+# t-test time babyyyyyy
+
+```{r}
+#runing t-test on updating tech
+t.test(for_t$dispute_resolutions, mu = 3, conf.level = .99)
+
+#t-test for mentoring
+t.test(for_t$leadership_training, mu = 3,  conf.level = .99)
+
+#t-test for three year
+t.test(for_t$salary_structures, mu = 3,  conf.level = .99)
+
+#t-test for teaching evals
+t.test(for_t$decrease_pay_gap, mu = 3, conf.level = .99)
+
+#t-test for national
+t.test(for_t$transparent_merit, mu = 3, conf.level = .99)
+
+#t-test for incentives
+t.test(for_t$merit, mu = 3, conf.level = .99)
+
+#t-test for distributing
+t.test(for_t$performance_based_salary, mu = 3, conf.level = .99)
+
+#t-test for distributing
+t.test(for_t$senior_faculty, mu = 3, conf.level = .99)
+
+#t-test for distributing
+t.test(for_t$tri_campus, mu = 3, conf.level = .99)
+```
+
