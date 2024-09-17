@@ -77,7 +77,7 @@ t.test(large_enroll_for_t$large_enrollment, mu = 3)
 pie(rehee$n, col = c("#ff4e50", "#fc913a", "#f9d62e", "#eae374",  "#e2f4c7", "#fcfdf9", border = "white"), labels = c("1 - Highest", "2", "3", "4", "5 - Lowest", "No Answer"), main = "Large enrollments, challenging time schedules or difficult schedules ")
 ```
 
-# Cleaning all of the first_section to make numeric
+# Cleaning all of the Teaching to make numeric
 
 ```{r}
 #removing highest and lowest from each of the sections so we can convert to numeric
