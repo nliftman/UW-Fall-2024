@@ -120,7 +120,7 @@ t.test(for_t$salary_structures, mu = 3,  conf.level = .99)
 #t-test for decrease pay gap
 t.test(for_t$decrease_pay_gap, mu = 3, conf.level = .99)
 
-#t-test for transparent merti 
+#t-test for transparent merit
 t.test(for_t$transparent_merit, mu = 3, conf.level = .99)
 
 #t-test for merit
