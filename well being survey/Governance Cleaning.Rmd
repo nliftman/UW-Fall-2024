@@ -111,28 +111,28 @@ for_t <- governance %>%
 #runing t-test on updating tech
 t.test(for_t$dispute_resolutions, mu = 3, conf.level = .99)
 
-#t-test for mentoring
+#t-test for leadership
 t.test(for_t$leadership_training, mu = 3,  conf.level = .99)
 
-#t-test for three year
+#t-test for salary structures
 t.test(for_t$salary_structures, mu = 3,  conf.level = .99)
 
-#t-test for teaching evals
+#t-test for decrease pay gap
 t.test(for_t$decrease_pay_gap, mu = 3, conf.level = .99)
 
-#t-test for national
+#t-test for transparent merti 
 t.test(for_t$transparent_merit, mu = 3, conf.level = .99)
 
-#t-test for incentives
+#t-test for merit
 t.test(for_t$merit, mu = 3, conf.level = .99)
 
-#t-test for distributing
+#t-test for performance based salary
 t.test(for_t$performance_based_salary, mu = 3, conf.level = .99)
 
-#t-test for distributing
+#t-test for senior faculty
 t.test(for_t$senior_faculty, mu = 3, conf.level = .99)
 
-#t-test for distributing
+#t-test for tri campus stuff
 t.test(for_t$tri_campus, mu = 3, conf.level = .99)
 ```
 
