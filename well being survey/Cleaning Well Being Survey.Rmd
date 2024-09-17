@@ -55,9 +55,21 @@ first_section$large_enrollment <- sub("5 - Lowest", 5, first_section$large_enrol
 #turning it all to numeric
 first_section$large_enrollment <- as.numeric(first_section$large_enrollment)
 
+#drop the 6's so we can run t-test
+large_enroll_for_t <- first_section %>% 
+  filter(large_enrollment != 6)
+
 #count df
 rehee <- first_section %>% 
   count(large_enrollment)
+```
+
+# Running T-tests to see if these findings are statistically different than if it did not matter at all
+
+```{r}
+#testing if it was random then the average should be 3 if no one really has strong feelings
+t.test(large_enroll_for_t$large_enrollment, mu = 3)
+#oooOOOOoooooO peopel care!
 ```
 
 # Making a Pie Chart!
