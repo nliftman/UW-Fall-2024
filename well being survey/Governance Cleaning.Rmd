@@ -136,3 +136,46 @@ t.test(for_t$senior_faculty, mu = 3, conf.level = .99)
 t.test(for_t$tri_campus, mu = 3, conf.level = .99)
 ```
 
+# Pretty Table Time YAYAYAYAYAY
+```{r}
+#naming the variables
+topic <- NA
+average <- NA
+lower_bound <- NA
+upper_bound <- NA
+p_value <- NA
+
+#turning into a data frame
+teaching_tables <- data.frame(topic, average, lower_bound, upper_bound, p_value)
+
+#adding the different names and numbers!b                                                                                                                                                                                 
+teaching_tables[1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+teaching_tables[nrow(teaching_tables) + 1, ] <- list()
+
+
+#turning it into a model with the gt function
+model_1 <- gt(teaching_tables)
+
+#now making it look pretty!
+model_1_part_2 <- model_1 %>% 
+  gt_add_divider(columns = "topic") %>% 
+  gt_add_divider(columns = "upper_bound") %>% 
+  gt_theme_538() %>% 
+  gt_color_rows(average) %>% 
+  cols_align(
+  align = c("right"),
+  columns = everything())
+
+model_1_part_2
+```
+
+
+
