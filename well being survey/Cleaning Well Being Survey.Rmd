@@ -182,7 +182,9 @@ model_1 <- gt(teaching_tables)
 
 #now making it look pretty!
 model_1_part_2 <- model_1 %>% 
-  gt_add_divider(columns = "topic")
+  gt_add_divider(columns = "topic") %>% 
+  gt_theme_538() %>% 
+  gt_color_rows(average)
 
 model_1_part_2
 ```
