@@ -167,20 +167,24 @@ p_value <- NA
 teaching_tables <- data.frame(topic, average, lower_bound, upper_bound, p_value)
 
 #adding the different names and numbers!
-teaching_tables[1, ] <- list("Provide adequate teaching resources for classes with large enrollments, challenging time schedules or difficult schedules", "2.1339","2.0558", "2.2120", "< 2.2e-16")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("Upgrade technology and training so that hybrid teaching is possible and of high quality", "2.7853", "2.6655", "2.9052", "4.425e-06")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("Provide faculty with mentoring opportunities in competency-based training on undergraduate and graduate-level teaching", "2.7198", "2.6111", "2.8285", "5.27e-11")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("3 year plan for teaching", "2.3226", "3.3240", "3.5527", "< 2.2e-16")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("Replace student evaluations of teaching with more evidence based methods for ensuring quality teaching", "2.3226", "2.2065", "2.4387", "< 2.2e-16")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("Allow course release for national level service participation (e.g. Chair of a professional society)", "2.8638", "2.7449", "2.9826", "0.0032")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("Provide incentives and training for mentoring PhD students", "2.543702", "2.427367", "2.660037", "< 2.2e-16")
-teaching_tables[nrow(teaching_tables) + 1, ] <- list("Create transparent and realistic faculty workload models that distribute workloads equitably across faculty in the department", "1.714653", "1.617789", "1.811517", "< 2.2e-16")
+teaching_tables[1, ] <- list("Provide adequate teaching resources for classes with large enrollments, challenging time schedules or difficult schedules", 2.1339,2.0558, 2.2120, "< 2.2e-16")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("Upgrade technology and training so that hybrid teaching is possible and of high quality", 2.7853, 2.6655, 2.9052, "4.425e-06")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("Provide faculty with mentoring opportunities in competency-based training on undergraduate and graduate-level teaching", 2.7198, 2.6111, 2.8285, "5.27e-11")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("3 year plan for teaching", 2.3226, 3.3240, 3.5527, "< 2.2e-16")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("Replace student evaluations of teaching with more evidence based methods for ensuring quality teaching", 2.3226, 2.2065, 2.4387, "< 2.2e-16")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("Allow course release for national level service participation (e.g. Chair of a professional society)", 2.8638, 2.7449, 2.9826, "0.0032")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("Provide incentives and training for mentoring PhD students", 2.5437, 2.4274, 2.6603, "< 2.2e-16")
+teaching_tables[nrow(teaching_tables) + 1, ] <- list("Create transparent and realistic faculty workload models that distribute workloads equitably across faculty in the department", 1.7147, 1.6178, 1.8115, "< 2.2e-16")
 
 
 #turning it into a model with the gt function
 model_1 <- gt(teaching_tables)
-model_1
 
+#now making it look pretty!
+model_1_part_2 <- model_1 %>% 
+  gt_add_divider(columns = "topic")
+
+model_1_part_2
 ```
 
 
